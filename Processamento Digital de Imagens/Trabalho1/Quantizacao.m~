@@ -1,0 +1,163 @@
+% Programa que raliza a quantização de imagens
+
+clc;
+clear all;
+close all;
+
+max = 255;
+
+% Imagem de baixos detalhes
+lena = imread('woman_blonde.jpg');
+lena = lena(:,:,1);
+c = double(lena) / max;
+
+figure(8);
+set(8,'Name','8Bits');
+imshow(lena);
+
+f = (2^7 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(7);
+set(7,'Name','7bits');
+imshow(s);
+
+f = (2^6 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(1);
+set(1,'Name','6bits');
+imshow(s);
+
+f = (2^5 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(2);
+set(2,'Name','5bits');
+imshow(s);
+
+f = (2^4 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(3);
+set(3,'Name','4bits');
+imshow(s);
+
+f = (2^3 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(4);
+set(4,'Name','3bits');
+imshow(s);
+
+f = (2^2 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(5);
+set(5,'Name','2bits');
+imshow(s);
+
+f = (2^1 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(6);
+set(6,'Name','1bit');
+imshow(s);
+
+% Imagem de médios detalhes
+
+lena = imread('Cameraman512.jpg');
+lena = lena(:,:,1);
+c = double(lena) / max;
+
+figure(9);
+set(9,'Name','8Bits');
+imshow(lena);
+
+f = (2^7 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(10);
+set(10,'Name','7bits');
+imshow(s);
+
+f = (2^6 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(11);
+set(11,'Name','6bits');
+imshow(s);
+
+f = (2^5 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(12);
+set(12,'Name','5bits');
+imshow(s);
+
+f = (2^4 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(13);
+set(13,'Name','4bits');
+imshow(s);
+
+f = (2^3 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(14);
+set(14,'Name','3bits');
+imshow(s);
+
+f = (2^2 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(15);
+set(15,'Name','2bits');
+imshow(s);
+
+f = (2^1 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(16);
+set(16,'Name','1bit');
+imshow(s);
+
+% 
+% Imagem de altos detalhes
+
+lena = imread('Alta/crowd1.jpg');
+lena = lena(:,:,1);
+c = double(lena) / max;
+
+figure(28);
+set(28,'Name','8Bits');
+imshow(lena);
+
+f = (2^7 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(27);
+set(27,'Name','7bits');
+imshow(s);
+
+f = (2^6 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(21);
+set(21,'Name','6bits');
+imshow(s);
+
+f = (2^5 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(22);
+set(22,'Name','5bits');
+imshow(s);
+
+f = (2^4 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(23);
+set(23,'Name','4bits');
+imshow(s);
+
+f = (2^3 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(24);
+set(24,'Name','3bits');
+imshow(s);
+
+f = (2^2 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(25);
+set(25,'Name','2bits');
+imshow(s);
+
+f = (2^1 - 1);
+s = imadjust(uint8(round(f * c)), [0 f/max],[0 1]);
+figure(26);
+set(26,'Name','1bit');
+imshow(s);

@@ -1,0 +1,1 @@
+Neste Zip possui os codigos Trabalho 1 e kmedias, que foram o scripts feitos para essa tarefa além de uma apresentação em power point, os códigos estão em python.

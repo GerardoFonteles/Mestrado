@@ -1,0 +1,100 @@
+% Programa que realiza a amostragem de imagens
+% Amostrando imagem de baixos detalhes
+close all
+c = imread('woman_blonde.jpg');
+
+
+figure(1);
+set(1,'Name','512 x 512');
+image(c);
+
+figure(2);
+set(2,'Name','256 x 256');
+s = imresize(c,[256 256],'bilinear');
+image(s);
+
+ figure(3);
+ set(3,'Name','128 x 128');
+ s = imresize(c,[128 128],'bilinear');
+ image(s);
+
+figure(4);
+set(4,'Name','64 x 64');
+s = imresize(c,[64 64],'bilinear');
+image(s);
+
+figure(5);
+set(5,'Name','32 x 32');
+s = imresize(c,[32 32],'bilinear');
+image(s);
+
+figure(6);
+set(6,'Name','16 x 16');
+s = imresize(c,[16 16],'bilinear');
+image(s);
+
+%Amostrando imagem de médios detalhes
+
+c = imread('Cameraman512.jpg');
+
+figure(7);
+set(7,'Name','512 x 512');
+image(c);
+
+figure(8);
+set(8,'Name','128 x 128');
+s = imresize(c,[128 128],'bilinear');
+image(s);
+
+figure(9);
+set(9,'Name','64 x 64');
+s = imresize(c,[64 64],'bilinear');
+image(s);
+
+figure(10);
+set(10,'Name','32 x 32');
+s = imresize(c,[32 32],'bilinear');
+image(s);
+
+figure(11);
+set(11,'Name','16 x 16');
+s = imresize(c,[16 16],'bilinear');
+image(s);
+
+figure(12);
+set(12,'Name','256 x 256');
+s = imresize(c,[256 256],'bilinear');
+image(s);
+
+% % Amostrando imagem de alto detalhes
+
+c = imread('crowd1.jpg');
+
+figure(13);
+set(13,'Name','512 x 512');
+image(c);
+
+figure(14);
+set(14,'Name','128 x 128');
+s = imresize(c,[128 128],'bilinear');
+image(s);
+
+figure(15);
+set(15,'Name','64 x 64');
+s = imresize(c,[64 64],'bilinear');
+image(s);
+
+figure(16);
+set(16,'Name','32 x 32');
+s = imresize(c,[32 32],'bilinear');
+image(s);
+
+figure(17);
+set(17,'Name','16 x 16');
+s = imresize(c,[16 16],'bilinear');
+image(s);
+
+figure(18);
+set(18,'Name','256 x 256');
+s = imresize(c,[256 256],'bilinear');
+image(s);

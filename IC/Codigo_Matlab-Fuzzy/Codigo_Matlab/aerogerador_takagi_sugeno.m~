@@ -1,0 +1,62 @@
+% Implementacao de um sistema de inferencia fuzzy
+% ENTRADAS: x1 (velocidade, Km/h), x2 (raio de curvatura, m)
+% SAIDA:  y (forca no pedal de freio, N)
+%
+% Autor: Guilherme A. Barreto 
+% Data:  03/10/2009
+
+clear; clc; close all;
+
+% Valores medidos de x1 e x2
+D=load('aerogerador.dat');
+
+x=D(:,1);  % veloc. ventos
+y=D(:,2);  % potencia gerada
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% ESTIMACAO DE PARAMETROS DOS MODELOS LOCAIS %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%
+% ETAPA 1: DETERMINACAO DAS ATIVACOES NORMALIZADAS DAS REGRAS PARA CADA VALOR MEDIDO 
+%          DA VELOCIDADE DO VENTO E MONTAGEM DA MATRIZ DE DADOS CORRESPONDENTES
+%%%%%%%%%%%%
+Lx=length(x);
+wi=[];
+X=[];
+for i=1:Lx,
+	mi=vento(x(i));      % Pertinencias para variavel VELOCIDADE do vento
+	wi=mi/sum(mi);       % Calcula as ativacoes normalizadas das 3 regras
+    X=[X; wi wi*x(i)];   % Monta matriz de dados
+end
+
+%%%%%%%%%%%%
+% ETAPA 2: ESTIMACAO PELO METODO DOS MINIMOS QUADRADOS
+%%%%%%%%%%%%
+%B=inv(X'*X)*X'*y;
+B=pinv(X)*y;
+
+%%%%%%%%%%%%
+% ETAPA 3: PREDICAO E GRAFICO DA CURVA DE REGRESSAO
+%%%%%%%%%%%%
+xx=min(x):0.1:max(x); xx=xx'; % Define faixa de valores para velocidade
+ypred2=polyval(B,xx); % predicao da saida correspondente
+
+
+%%%%%%%%%%%%
+% ETAPA 4: GRAFICOS DA CURVA DE REGRESSAO
+%%%%%%%%%%%%
+figure; plot(x,y,'bo'); hold on; grid; % diagrama de dispersao
+xlabel('Velocidade do vento [m/s]'); 
+ylabel('Potencia gerada [kWatts]');
+
+plot(xx,ypred2,'r-'); % Sobrepoe curva de regressao aos dados
+hold off; 
+
+
+
+
+
+
+
+
